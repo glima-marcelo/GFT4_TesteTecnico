@@ -8,6 +8,6 @@ public class Repteis extends Animal {
 
     @Override
     public void alimentar() {
-        System.out.println("Alimentar com mix de Carne e Vegetais");
+        System.out.println("Alimentar com Vegetais");
     }
 }

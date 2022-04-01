@@ -2,7 +2,7 @@ public class Anfibios extends Animal {
 
     @Override
     public void locomover() {
-        System.out.println("Andar ou Nadar");
+        System.out.println("Nadar");
 
     }
 
