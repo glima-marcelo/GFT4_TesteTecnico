@@ -32,10 +32,7 @@ public class Vetor {
 
         qtd.entrySet().forEach(entry->{
         System.out.printf("%d aparece %d vez(es)\n", entry.getKey(), entry.getValue());
-
-
-
-
+        });
 
         System.out.println("Quantidade de números pares: " + par);
         System.out.println("Quantidade de números ímpares: " + impar);

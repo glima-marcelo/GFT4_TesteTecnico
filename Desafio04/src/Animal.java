@@ -5,15 +5,11 @@ public class Animal implements AcoesAnimal {
     protected String habitat;
 
 
-
-
     @Override
     public void locomover() {
-
     }
 
     @Override
     public void alimentar() {
-
     }
 }
