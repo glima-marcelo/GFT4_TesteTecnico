@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Vetor {
 
@@ -13,15 +11,16 @@ public class Vetor {
         int tamanho = leitura.nextInt();
 
         System.out.println("Digite os números inteiros do vetor");
-        Integer[] vetor = new Integer[tamanho];
+        //Integer[] vetor = new Integer[tamanho];
+        List<Integer> vetor = new ArrayList<>();
 
         int par = 0;
         int impar = 0;
 
         for (int i = 0; i < tamanho; i++) {
-            vetor[i] = leitura.nextInt();
+            vetor.add(leitura.nextInt());
 
-            if (vetor[i] % 2 == 0) {
+            if (vetor.get(i) % 2 == 0) {
                 par++;
             } else {
                 impar++;
@@ -31,7 +30,23 @@ public class Vetor {
 
         System.out.println("Quantidade de números pares: " + par);
         System.out.println("Quantidade de números ímpares: " + impar);
-        
+
+        SortedMap<Integer, Integer> qtd = new TreeMap<>();
+        vetor.forEach(id -> qtd.compute(id, (key , qtda ) -> (qtda == null ? 1 : qtda + 1)));
+
+        AtomicInteger cont = new AtomicInteger();
+
+        List<Integer> repetidos = new ArrayList<>();
+
+        qtd.entrySet().forEach(entry->{
+            if (entry.getValue() > 1) {
+                repetidos.add(entry.getKey());
+                cont.getAndIncrement();
+            }
+        });
+        System.out.println("Quantidade de números repetidos: " + cont);
+        System.out.println("Números repetidos: " + repetidos);
+
 
     }
 }
