@@ -27,17 +27,11 @@ public class Vetor {
                 impar++;
             }
         }
-        SortedMap<Integer, Integer> qtd = new TreeMap<>();
-        vetor.forEach(id -> qtd.compute(id, (key , qtda ) -> (qtda == null ? 1 : qtda + 1)));
 
-        qtd.entrySet().forEach(entry->{
-        System.out.printf("%d aparece %d vez(es)\n", entry.getKey(), entry.getValue());
-        });
 
         System.out.println("Quantidade de números pares: " + par);
         System.out.println("Quantidade de números ímpares: " + impar);
-        //System.out.println("Quantidade de números repetidos: " + par);
-        //System.out.println("Quais são os números repetidos: " + par);
+        
 
     }
 }
