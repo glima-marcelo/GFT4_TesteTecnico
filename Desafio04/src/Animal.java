@@ -1,4 +1,10 @@
-public class Animal extends AcoesAnimal {
+public class Animal implements AcoesAnimal {
+
+    protected String classe;
+    protected String alimentacao;
+    protected String habitat;
+
+
 
 
     @Override

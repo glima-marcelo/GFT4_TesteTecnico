@@ -5,9 +5,9 @@ public class Pessoa {
 
     protected String nome;
     protected String sexo;
-    protected Date dataNascimento;
+    protected String dataNascimento;
 
-    public Pessoa(String nome, String sexo, Date dataNascimento) {
+    public Pessoa(String nome, String sexo, String dataNascimento) {
         this.nome = nome;
         this.sexo = sexo;
         this.dataNascimento = dataNascimento;
@@ -29,17 +29,25 @@ public class Pessoa {
         this.sexo = sexo;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
     public void imprimeTempoVidaRestante() {
+        int tempoRestante = 0;
+        int anoAtual = LocalDate.now().getYear();
+        LocalDate dt = LocalDate.parse(this.getDataNascimento());
+        int anoNascimento = dt.getYear();
+        int delta = anoAtual - anoNascimento;
         if (this.getSexo().equals("M")) {
-            int idade = (LocalDate.now().getYear()) - this.getDataNascimento();
+            tempoRestante = 73 - delta;
+        } else if (this.getSexo().equals("F")) {
+            tempoRestante = 80 - delta;
         }
+        System.out.println("O tempo restante de vida para " + this.getNome() + " do sexo " + this.getSexo() + " nascido(a) em " + this.getDataNascimento() + " é de " + tempoRestante + "anos");
     }
 }
